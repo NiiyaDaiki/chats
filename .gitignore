@@ -1,2 +1,5 @@
-
+src/public/css/app.css
+src/public/js/app.js
+src/public/js/manifest.js
+src/public/js/vendor.js
 src/public/mix-manifest.json
