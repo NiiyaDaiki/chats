@@ -22,12 +22,14 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <span v-for="friend in friends" :key="friend.id" v-if="friend.session">
-                    <message-component
-                        v-if="friend.session.open"
-                        @close="close(friend)"
-                        :friend="friend"
-                    ></message-component>
+                <span v-for="friend in friends" :key="friend.id">
+                    <template v-if="friend.session">
+                        <message-component
+                            v-if="friend.session.open"
+                            @close="close(friend)"
+                            :friend="friend"
+                        ></message-component>
+                    </template>
                 </span>
             </div>
         </div>

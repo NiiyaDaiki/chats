@@ -15,7 +15,7 @@ class Message extends Model
 
     public function createForSend($session_id)
     {
-        $this->chats()->create(
+        return $this->chats()->create(
             [
                 'session_id' => $session_id,
                 'type' => 0,
@@ -27,7 +27,7 @@ class Message extends Model
 
     public function createForReceive($session_id, $to_user)
     {
-        $this->chats()->create(
+        return $this->chats()->create(
             [
                 'session_id' => $session_id,
                 'type' => 1,
