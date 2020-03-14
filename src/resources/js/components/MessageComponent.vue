@@ -35,7 +35,12 @@
             <!-- Option Button End-->
         </div>
         <div class="card-body" v-chat-scroll>
-            <p class="card-text" v-for="chat in chats" :key="chat.message">{{chat.message}}</p>
+            <p
+                class="card-text"
+                :class="{'text-right':chat.type == 0 }"
+                v-for="chat in chats"
+                :key="chat.message"
+            >{{chat.message}}</p>
         </div>
         <form class="card-footer" @submit.prevent="send">
             <div class="form-group">
@@ -44,6 +49,7 @@
                     class="form-control"
                     placeholder="Write your message here"
                     :disabled="session_block"
+                    v-model="message"
                 />
             </div>
         </form>
@@ -56,12 +62,23 @@ export default {
     data() {
         return {
             chats: [],
+            message: null,
             session_block: false
         };
     },
     methods: {
         send() {
-            console.log("yeahhh");
+            if (this.message) {
+                this.pushToChats(this.message);
+                axios.post(`/send/${this.friend.session.id}`, {
+                    content: this.message,
+                    to_user: this.friend.id
+                });
+                this.message = null;
+            }
+        },
+        pushToChats(message) {
+            this.chats.push({ message: message, type: 0, sent_at: "Just Now" });
         },
         close() {
             this.$emit("close");
@@ -74,25 +91,15 @@ export default {
         },
         unBlock() {
             this.session_block = false;
+        },
+        getAllMessages() {
+            axios
+                .post(`/session/${this.friend.session.id}/chats`)
+                .then(res => (this.chats = res.data.data));
         }
     },
     created() {
-        this.chats.push(
-            { message: "How are you1" },
-            { message: "How are you2" },
-            { message: "How are you3" },
-            { message: "How are you4" },
-            { message: "How are you5" },
-            { message: "How are you6" },
-            { message: "How are you7" },
-            { message: "How are you8" },
-            { message: "How are you9" },
-            { message: "How are you10" },
-            { message: "How are you11" },
-            { message: "How are you12" },
-            { message: "How are you13" },
-            { message: "I am at bottom" }
-        );
+        this.getAllMessages();
     }
 };
 </script>
