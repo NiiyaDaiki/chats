@@ -47,7 +47,6 @@ import MessageComponent from "./MessageComponent";
 export default {
     data() {
         return {
-            open: true,
             friends: []
         };
     },
