@@ -1,9 +1,10 @@
 <template>
     <div class="card card-default chat-box">
         <div class="card-header">
-            <b :class="{'text-danger':session_block}">
+            <b :class="{'text-danger':session.block}">
                 {{friend.name}}
-                <span v-if="session_block">(blocked)</span>
+                <span v-if="isTyping">is Typing...</span>
+                <span v-if="session.block">(blocked)</span>
             </b>
             <!-- Close Button -->
             <a @click.prevent="close">
@@ -25,10 +26,15 @@
                     <a
                         class="dropdown-item"
                         href="#"
-                        v-if="session_block"
+                        v-if="session.block && can"
                         @click.prevent="unBlock"
                     >UnBlock</a>
-                    <a class="dropdown-item" href="#" @click.prevent="block" v-else>Block</a>
+                    <a
+                        class="dropdown-item"
+                        href="#"
+                        @click.prevent="block"
+                        v-if="!session.block"
+                    >Block</a>
                     <a class="dropdown-item" href="#" @click.prevent="clear">Clear Chat</a>
                 </div>
             </div>
@@ -52,7 +58,7 @@
                     type="text"
                     class="form-control"
                     placeholder="Write your message here"
-                    :disabled="session_block"
+                    :disabled="session.block"
                     v-model="message"
                 />
             </div>
@@ -67,8 +73,28 @@ export default {
         return {
             chats: [],
             message: null,
-            session_block: false
+            isTyping: false
         };
+    },
+    computed: {
+        session() {
+            return this.friend.session;
+        },
+        can() {
+            return this.session.blocked_by == auth.id;
+        }
+    },
+    watch: {
+        message(value) {
+            if (value) {
+                Echo.private(`Chat.${this.friend.session.id}`).whisper(
+                    "typing",
+                    {
+                        name: auth.name
+                    }
+                );
+            }
+        }
     },
     methods: {
         send() {
@@ -102,10 +128,16 @@ export default {
                 .then(res => (this.chats = []));
         },
         block() {
-            this.session_block = true;
+            this.session.block = true;
+            axios
+                .post(`/session/${this.friend.session.id}/block`)
+                .then(res => (this.session.blocked_by = auth.id));
         },
         unBlock() {
-            this.session_block = false;
+            this.session.block = false;
+            axios
+                .post(`/session/${this.friend.session.id}/unblock`)
+                .then(res => (this.session.blocked_by = null));
         },
         getAllMessages() {
             axios
@@ -139,6 +171,21 @@ export default {
                 this.chats.forEach(chat =>
                     chat.id == e.chat.id ? (chat.read_at = e.chat.read_at) : ""
                 )
+        );
+
+        Echo.private(`Chat.${this.friend.session.id}`).listen(
+            "BlockEvent",
+            e => (this.session.block = e.blocked)
+        );
+
+        Echo.private(`Chat.${this.friend.session.id}`).listenForWhisper(
+            "typing",
+            e => {
+                this.isTyping = true;
+                setTimeout(() => {
+                    this.isTyping = false;
+                }, 2000);
+            }
         );
     }
 };
