@@ -97,7 +97,9 @@ export default {
             this.$emit("close");
         },
         clear() {
-            this.chats = [];
+            axios
+                .post(`session/${this.friend.session.id}/clear`)
+                .then(res => (this.chats = []));
         },
         block() {
             this.session_block = true;
