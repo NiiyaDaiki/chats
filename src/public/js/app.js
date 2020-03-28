@@ -1943,11 +1943,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      open: true,
       friends: []
     };
   },
@@ -1959,7 +1968,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post("/getFriends").then(function (res) {
-        return _this.friends = res.data.data;
+        _this.friends = res.data.data;
+
+        _this.friends.forEach(function (friend) {
+          friend.session ? _this.listenForEverySession(friend) : "";
+        });
       });
     },
     openChat: function openChat(friend) {
@@ -1969,6 +1982,7 @@ __webpack_require__.r(__webpack_exports__);
           return friend.session ? friend.session.open = false : "";
         });
         friend.session.open = true;
+        friend.session.unreadCount = 0;
       } else {
         // create session
         this.createSession(friend);
@@ -1981,6 +1995,11 @@ __webpack_require__.r(__webpack_exports__);
         friend.session = res.data.data;
         friend.session.open = true;
       });
+    },
+    listenForEverySession: function listenForEverySession(friend) {
+      Echo["private"]("Chat.".concat(friend.session.id)).listen("PrivateChatEvent", function (e) {
+        return friend.session.open ? "" : friend.session.unreadCount++;
+      });
     }
   },
   created: function created() {
@@ -1988,13 +2007,13 @@ __webpack_require__.r(__webpack_exports__);
 
     this.getFriends();
     Echo.channel("Chat").listen("SessionEvent", function (e) {
-      console.log(e);
-
       var friend = _this2.friends.find(function (friend) {
         return friend.id == e.session_by;
       });
 
       friend.session = e.session;
+
+      _this2.listenForEverySession(friend);
     });
     Echo.join("Chat").here(function (users) {
       _this2.friends.forEach(function (friend) {
@@ -2088,22 +2107,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["friend"],
   data: function data() {
     return {
       chats: [],
       message: null,
-      session_block: false
+      isTyping: false
     };
+  },
+  computed: {
+    session: function session() {
+      return this.friend.session;
+    },
+    can: function can() {
+      return this.session.blocked_by == auth.id;
+    }
+  },
+  watch: {
+    message: function message(value) {
+      if (value) {
+        Echo["private"]("Chat.".concat(this.friend.session.id)).whisper("typing", {
+          name: auth.name
+        });
+      }
+    }
   },
   methods: {
     send: function send() {
+      var _this = this;
+
       if (this.message) {
         this.pushToChats(this.message);
         axios.post("/send/".concat(this.friend.session.id), {
           content: this.message,
           to_user: this.friend.id
+        }).then(function (res) {
+          return _this.chats[_this.chats.length - 1].id = res.data;
         });
         this.message = null;
       }
@@ -2112,6 +2162,7 @@ __webpack_require__.r(__webpack_exports__);
       this.chats.push({
         message: message,
         type: 0,
+        read_at: null,
         sent_at: "Just Now"
       });
     },
@@ -2119,32 +2170,66 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit("close");
     },
     clear: function clear() {
-      this.chats = [];
+      var _this2 = this;
+
+      axios.post("session/".concat(this.friend.session.id, "/clear")).then(function (res) {
+        return _this2.chats = [];
+      });
     },
     block: function block() {
-      this.session_block = true;
+      var _this3 = this;
+
+      this.session.block = true;
+      axios.post("/session/".concat(this.friend.session.id, "/block")).then(function (res) {
+        return _this3.session.blocked_by = auth.id;
+      });
     },
     unBlock: function unBlock() {
-      this.session_block = false;
+      var _this4 = this;
+
+      this.session.block = false;
+      axios.post("/session/".concat(this.friend.session.id, "/unblock")).then(function (res) {
+        return _this4.session.blocked_by = null;
+      });
     },
     getAllMessages: function getAllMessages() {
-      var _this = this;
+      var _this5 = this;
 
       axios.post("/session/".concat(this.friend.session.id, "/chats")).then(function (res) {
-        return _this.chats = res.data.data;
+        return _this5.chats = res.data.data;
       });
+    },
+    read: function read() {
+      axios.post("/session/".concat(this.friend.session.id, "/read"));
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this6 = this;
 
+    this.read();
     this.getAllMessages();
     Echo["private"]("Chat.".concat(this.friend.session.id)).listen("PrivateChatEvent", function (e) {
-      return _this2.chats.push({
+      _this6.friend.session.open ? _this6.read() : "";
+
+      _this6.chats.push({
         message: e.content,
         type: 1,
         sent_at: "Just Now"
       });
+    });
+    Echo["private"]("Chat.".concat(this.friend.session.id)).listen("MsgReadEvent", function (e) {
+      return _this6.chats.forEach(function (chat) {
+        return chat.id == e.chat.id ? chat.read_at = e.chat.read_at : "";
+      });
+    });
+    Echo["private"]("Chat.".concat(this.friend.session.id)).listen("BlockEvent", function (e) {
+      return _this6.session.block = e.blocked;
+    });
+    Echo["private"]("Chat.".concat(this.friend.session.id)).listenForWhisper("typing", function (e) {
+      _this6.isTyping = true;
+      setTimeout(function () {
+        _this6.isTyping = false;
+      }, 2000);
     });
   }
 });
@@ -48186,7 +48271,16 @@ var render = function() {
                 },
                 [
                   _c("a", { attrs: { href: "" } }, [
-                    _vm._v(_vm._s(friend.name))
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(friend.name) +
+                        "\n                            "
+                    ),
+                    friend.session && friend.session.unreadCount > 0
+                      ? _c("span", { staticClass: "text-danger" }, [
+                          _vm._v(_vm._s(friend.session.unreadCount))
+                        ])
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   friend.online
@@ -48258,9 +48352,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card card-default chat-box" }, [
     _c("div", { staticClass: "card-header" }, [
-      _c("b", { class: { "text-danger": _vm.session_block } }, [
+      _c("b", { class: { "text-danger": _vm.session.block } }, [
         _vm._v("\n            " + _vm._s(_vm.friend.name) + "\n            "),
-        _vm.session_block ? _c("span", [_vm._v("(blocked)")]) : _vm._e()
+        _vm.isTyping ? _c("span", [_vm._v("is Typing...")]) : _vm._e(),
+        _vm._v(" "),
+        _vm.session.block ? _c("span", [_vm._v("(blocked)")]) : _vm._e()
       ]),
       _vm._v(" "),
       _c(
@@ -48291,7 +48387,7 @@ var render = function() {
             attrs: { "aria-labelledby": "dropdownMenuButton" }
           },
           [
-            _vm.session_block
+            _vm.session.block && _vm.can
               ? _c(
                   "a",
                   {
@@ -48306,7 +48402,10 @@ var render = function() {
                   },
                   [_vm._v("UnBlock")]
                 )
-              : _c(
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.session.block
+              ? _c(
                   "a",
                   {
                     staticClass: "dropdown-item",
@@ -48319,7 +48418,8 @@ var render = function() {
                     }
                   },
                   [_vm._v("Block")]
-                ),
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "a",
@@ -48352,9 +48452,19 @@ var render = function() {
           {
             key: chat.id,
             staticClass: "card-text",
-            class: { "text-right": chat.type == 0 }
+            class: {
+              "text-right": chat.type == 0,
+              "text-success": chat.read_at != null
+            }
           },
-          [_vm._v(_vm._s(chat.message))]
+          [
+            _vm._v("\n            " + _vm._s(chat.message) + "\n            "),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticStyle: { "font-size": "8px" } }, [
+              _vm._v(_vm._s(chat.read_at))
+            ])
+          ]
         )
       }),
       0
@@ -48386,7 +48496,7 @@ var render = function() {
             attrs: {
               type: "text",
               placeholder: "Write your message here",
-              disabled: _vm.session_block
+              disabled: _vm.session.block
             },
             domProps: { value: _vm.message },
             on: {
@@ -60649,6 +60759,10 @@ var app = new Vue({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
+var _ref;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -60678,15 +60792,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 
-window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
-window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
+window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js"); // window.io = require('socket.io-client');
+
+window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]((_ref = {
+  // broadcaster: 'socket.io',
+  // host: 'http://localhost:6001',
   broadcaster: 'pusher',
-  // key: process.env.MIX_PUSHER_APP_KEY,
-  key: "6abe4e4027440e248523",
-  // cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-  cluster: "ap3",
-  encrypted: true
-});
+  key: ""
+}, _defineProperty(_ref, "key", "myKey"), _defineProperty(_ref, "cluster", ""), _defineProperty(_ref, "cluster", "myCluster"), _defineProperty(_ref, "wsHost", window.location.hostname), _defineProperty(_ref, "wsPort", 6001), _defineProperty(_ref, "disableStats", true), _ref));
 
 /***/ }),
 

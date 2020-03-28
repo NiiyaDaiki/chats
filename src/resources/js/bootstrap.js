@@ -32,12 +32,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import Echo from 'laravel-echo';
 
 window.Pusher = require('pusher-js');
+// window.io = require('socket.io-client');
 
 window.Echo = new Echo({
+    // broadcaster: 'socket.io',
+    // host: 'http://localhost:6001',
+
     broadcaster: 'pusher',
-    // key: process.env.MIX_PUSHER_APP_KEY,
-    key: "6abe4e4027440e248523",
-    // cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    cluster: "ap3",
-    encrypted: true
+    key: process.env.MIX_PUSHER_APP_KEY,
+    key: "myKey",
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    cluster: "myCluster",
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    disableStats: true,
 });
