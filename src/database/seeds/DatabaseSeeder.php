@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,24 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        factory(User::class)->create(
-            [
-                'email' => 'niiya@gmail.com',
-                'name' => 'Niiya'
-            ]
-        );
-        factory(User::class)->create(
-            [
-                'email' => 'yasumura@gmail.com',
-                'name' => 'Yasumura'
-            ]
-        );
-        factory(User::class)->create(
-            [
-                'email' => 'tsunematsu@gmail.com',
-                'name' => 'Tsunematsu'
-            ]
-        );
+
+        $this->call(UsersTableSeeder::class);
     }
 }

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="card card-default">
-                    <div class="card-header">Private Chat App</div>
+                    <div class="card-header">ともだち</div>
                     <ul class="list-group">
                         <li
                             class="list-group-item"

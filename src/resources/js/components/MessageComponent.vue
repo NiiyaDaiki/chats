@@ -3,8 +3,8 @@
         <div class="card-header">
             <b :class="{'text-danger':session.block}">
                 {{friend.name}}
-                <span v-if="isTyping">is Typing...</span>
-                <span v-if="session.block">(blocked)</span>
+                <span v-if="isTyping">が入力中...</span>
+                <span v-if="session.block">(ブロック中)</span>
             </b>
             <!-- Close Button -->
             <a @click.prevent="close">
@@ -28,20 +28,20 @@
                         href="#"
                         v-if="session.block && can"
                         @click.prevent="unBlock"
-                    >UnBlock</a>
+                    >ブロック解除</a>
                     <a
                         class="dropdown-item"
                         href="#"
                         @click.prevent="block"
                         v-if="!session.block"
-                    >Block</a>
-                    <a class="dropdown-item" href="#" @click.prevent="clear">Clear Chat</a>
+                    >ブロック</a>
+                    <a class="dropdown-item" href="#" @click.prevent="clear">メッセージ履歴削除</a>
                 </div>
             </div>
             <!-- Option Button End-->
         </div>
         <div class="card-body" v-chat-scroll>
-            <p
+            <!-- <p
                 class="card-text"
                 :class="{'text-right':chat.type == 0, 'text-success':chat.read_at != null }"
                 v-for="chat in chats"
@@ -51,22 +51,32 @@
                 <br />
                 <span style="font-size:8px">{{chat.read_at}}</span>
             </p>
+            -->
+            <template v-for="chat in chats">
+                <balloon-component v-if="chat.type == 0" :key="chat.id" :chat="chat"></balloon-component>
+                <opponent-balloon-component v-else :key="chat.id" :chat="chat"></opponent-balloon-component>
+            </template>
         </div>
-        <form class="card-footer" @submit.prevent="send">
+        <!-- <form class="card-footer" @submit.prevent="send"> -->
+        <form class="card-footer" @keyup.ctrl.13="send">
             <div class="form-group">
-                <input
+                <textarea
                     type="text"
                     class="form-control"
-                    placeholder="Write your message here"
+                    :placeholder="session.block ? 'ブロック中のため入力できません':'メッセージを入力してください'"
                     :disabled="session.block"
                     v-model="message"
-                />
+                ></textarea>
+                <span class="f-right">Ctrl + Enterでメッセージを送信</span>
             </div>
         </form>
     </div>
 </template>
 
 <script>
+import BalloonComponent from "./BalloonComponent";
+import OpponentBalloonComponent from "./OpponentBalloonComponent";
+
 export default {
     props: ["friend"],
     data() {
@@ -187,15 +197,34 @@ export default {
                 }, 2000);
             }
         );
+    },
+    components: {
+        BalloonComponent,
+        OpponentBalloonComponent
     }
 };
 </script>
 
 <style>
+.f-right {
+    float: right;
+}
 .chat-box {
     height: 400px;
 }
 .card-body {
     overflow-y: scroll;
+    background-color: rgb(202, 11, 11);
+    min-height: 400px !important;
+    border: 5px solid;
+    border-color: black;
+}
+.card-text {
+    font-size: 20px;
+    line-height: 18px;
+}
+
+.text-al-end {
+    text-align: end;
 }
 </style>

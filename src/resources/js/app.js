@@ -23,6 +23,8 @@ Vue.use(require('vue-chat-scroll'));
 // Vue.component('chat-component', require('./components/ChatComponent.vue').default);
 import ChatComponent from './components/ChatComponent.vue'
 import MessageComponent from './components/MessageComponent.vue'
+import BalloonComponent from './components/BalloonComponent.vue'
+import OpponentBalloonComponent from './components/OpponentBalloonComponent.vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,5 +34,5 @@ import MessageComponent from './components/MessageComponent.vue'
 
 const app = new Vue({
     el: '#app',
-    components: { ChatComponent, MessageComponent }
+    components: { ChatComponent, MessageComponent, BalloonComponent, OpponentBalloonComponent }
 });
