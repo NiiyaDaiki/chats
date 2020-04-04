@@ -1,17 +1,13 @@
 <template>
-    <div class="opponent-wrapper">
+    <div class="opponent-ballon-wrapper">
         <div class="opponent-message-window">
             <div class="opponent-message-area">
                 <div class="opponent-content">
                     <div class="opponent-arrow-white"></div>
                     <div class="opponent-arrow-black"></div>
-
                     <div class="opponent-background-white"></div>
                     <div class="opponent-background-black"></div>
-                    <div class="opponent-text-area">
-                        <div class="prewrap break-word">{{chat.message}}</div>
-                        <div>{{chat.read_at}}</div>
-                    </div>
+                    <div class="opponent-text-area prewrap reak-word">{{chat.message}}</div>
                 </div>
             </div>
         </div>
@@ -37,19 +33,19 @@ body {
     word-wrap: break-word;
 }
 
-.opponent-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
+.opponent-ballon-wrapper {
+    @media screen and (max-width: 480px) {
+        max-width: 65%;
+    }
+    @media screen and (min-width: 480px) and (max-width: 1024px) {
+        max-width: 70%;
+    }
+    @media screen and (min-width: 1024px) {
+        max-width: 75%;
+    }
 }
-
 .opponent-message-window {
-    width: fit-content;
-    position: relative;
-
     .opponent-message-area {
-        left: 20px;
-
         > .opponent-content {
             position: relative;
 
@@ -106,7 +102,7 @@ body {
             .opponent-background-white {
                 background-color: #fff;
                 position: absolute;
-                width: 100%;
+                width: 110%;
                 height: 100%;
                 // z-index: 40;
                 z-index: 10;
@@ -122,7 +118,7 @@ body {
                 background-color: #000;
                 position: absolute;
 
-                width: calc(100% - 25px);
+                width: 102%;
                 height: calc(100% - 12px);
                 margin-left: 5px;
                 margin-right: 20px;
@@ -139,15 +135,25 @@ body {
                 animation-iteration-count: infinite;
             }
             .opponent-text-area {
+                max-width: 102%;
+                width: max-content;
                 color: #fff;
-                font-size: 20px;
+                @media screen and (max-width: 480px) {
+                    font-size: 14px;
+                }
+                @media screen and (min-width: 480px) {
+                    font-size: 20px;
+                }
                 margin-left: 5px;
                 margin-right: 50px;
                 margin-top: 5px;
                 margin-bottom: 7px;
 
-                padding-left: 30px;
-                padding-right: 30px;
+                // padding-left: 30px;
+                // padding-right: 30px;
+                padding-left: 10%;
+                padding-right: 5%;
+
                 padding-top: 15px;
                 padding-bottom: 20px;
 

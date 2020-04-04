@@ -1928,6 +1928,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["chat"]
 });
@@ -2085,7 +2088,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BalloonComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BalloonComponent */ "./resources/js/components/BalloonComponent.vue");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './OpponentBalloonComponent'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _OpponentBalloonComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OpponentBalloonComponent */ "./resources/js/components/OpponentBalloonComponent.vue");
+/* harmony import */ var _OpponentFaceComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OpponentFaceComponent */ "./resources/js/components/OpponentFaceComponent.vue");
 //
 //
 //
@@ -2161,6 +2165,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2280,8 +2286,62 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     BalloonComponent: _BalloonComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
-    OpponentBalloonComponent: !(function webpackMissingModule() { var e = new Error("Cannot find module './OpponentBalloonComponent'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    OpponentBalloonComponent: _OpponentBalloonComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+    OpponentFaceComponent: _OpponentFaceComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentBalloonComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["chat"]
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentFaceComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["chat"]
 });
 
 /***/ }),
@@ -8795,7 +8855,45 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".wrapper {\n  width: 100%;\n}\n.message-window {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  position: relative;\n}\n.message-window .message-area {\n  left: 20px;\n}\n.message-window .message-area > .content {\n  position: relative;\n}\n.message-window .message-area > .content .arrow-white {\n  background-color: #fff;\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  bottom: 20px;\n  left: -17px;\n  z-index: 30;\n  -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n          clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n  -webkit-animation-name: arrowWhiteAnimation;\n          animation-name: arrowWhiteAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .arrow-black {\n  background-color: #000;\n  position: absolute;\n  width: 28px;\n  height: 20px;\n  bottom: 22px;\n  left: -17px;\n  z-index: 40;\n  -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n          clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n  -webkit-animation-name: arrowBlackAnimation;\n          animation-name: arrowBlackAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .background-white {\n  background-color: #fff;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n  -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n          clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n  -webkit-animation-name: backgroundWhiteAnimation;\n          animation-name: backgroundWhiteAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .background-black {\n  background-color: #000;\n  position: absolute;\n  width: calc(100% - 25px);\n  height: calc(100% - 12px);\n  margin-left: 5px;\n  margin-right: 20px;\n  margin-top: 5px;\n  margin-bottom: 7px;\n  z-index: 20;\n  -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n          clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n  -webkit-animation-name: backgroundBlackAnimation;\n          animation-name: backgroundBlackAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .text-area {\n  color: #fff;\n  font-size: 20px;\n  margin-left: 5px;\n  margin-right: 50px;\n  margin-top: 5px;\n  margin-bottom: 7px;\n  padding-left: 30px;\n  padding-right: 30px;\n  padding-top: 15px;\n  padding-bottom: 20px;\n  line-height: 1.2em;\n  position: inherit;\n  z-index: 60;\n}\n@-webkit-keyframes arrowWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n25% {\n    -webkit-clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n}\n50% {\n    -webkit-clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n            clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n            clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n}\n@keyframes arrowWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n25% {\n    -webkit-clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n}\n50% {\n    -webkit-clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n            clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n            clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n}\n@-webkit-keyframes arrowBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n25% {\n    -webkit-clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n            clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n}\n50% {\n    -webkit-clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n            clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n            clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n}\n@keyframes arrowBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n25% {\n    -webkit-clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n            clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n}\n50% {\n    -webkit-clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n            clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n            clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n}\n@-webkit-keyframes backgroundWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n            clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n            clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n}\n@keyframes backgroundWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n            clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n            clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n}\n@-webkit-keyframes backgroundBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n            clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n            clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n            clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n}\n@keyframes backgroundBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n            clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n            clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n            clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n}", ""]);
+exports.push([module.i, "body {\n  font-family: \"Kosugi Maru\", sans-serif !important;\n}\n.ex-small {\n  font-size: 60%;\n}\n.text-al-end {\n  text-align: end;\n}\n.prewrap {\n  white-space: pre-wrap;\n}\n.break-word {\n  word-wrap: break-word;\n}\n.wrapper {\n  display: flex;\n  justify-content: flex-end;\n  width: 100%;\n}\n.message-window {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  position: relative;\n}\n.message-window .message-area {\n  right: 20px;\n}\n.message-window .message-area > .content {\n  position: relative;\n}\n.message-window .message-area > .content .arrow-white {\n  background-color: black;\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  bottom: 20px;\n  right: -13px;\n  z-index: 30;\n  -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n          clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n  -webkit-animation-name: arrowWhiteAnimation;\n          animation-name: arrowWhiteAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .arrow-black {\n  background-color: white;\n  position: absolute;\n  width: 30px;\n  height: 20px;\n  bottom: 22px;\n  right: -10px;\n  z-index: 40;\n  -webkit-clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n          clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n  -webkit-animation-name: arrowBlackAnimation;\n          animation-name: arrowBlackAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .background-white {\n  background-color: black;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 3px;\n  z-index: 10;\n  -webkit-clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n          clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n  -webkit-animation-name: backgroundWhiteAnimation;\n          animation-name: backgroundWhiteAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .background-black {\n  background-color: white;\n  position: absolute;\n  right: 5px;\n  width: calc(100% - 25px);\n  height: calc(100% - 12px);\n  margin-left: 20px;\n  margin-right: 5px;\n  margin-top: 5px;\n  margin-bottom: 7px;\n  z-index: 50;\n  -webkit-clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n          clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n  -webkit-animation-name: backgroundBlackAnimation;\n          animation-name: backgroundBlackAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.message-window .message-area > .content .text-area {\n  color: black;\n  font-size: 20px;\n  margin-left: 50px;\n  margin-right: 5px;\n  margin-top: 5px;\n  margin-bottom: 7px;\n  padding-left: 30px;\n  padding-right: 30px;\n  padding-top: 15px;\n  padding-bottom: 20px;\n  line-height: 1.2em;\n  position: inherit;\n  z-index: 60;\n}\n@-webkit-keyframes arrowWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n25% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n50% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n75% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n100% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n}\n@keyframes arrowWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n25% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n50% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n75% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n100% {\n    -webkit-clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n            clip-path: polygon(38% 43%, 45% 8%, 100% 71%, 56% 57%, 45% 100%, 0 73%, 0 8%);\n}\n}\n@-webkit-keyframes arrowBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n            clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n}\n25% {\n    -webkit-clip-path: polygon(38% 43%, 43% 19%, 100% 72%, 56% 57%, 47% 81%, 0 72%, 0 26%);\n            clip-path: polygon(38% 43%, 43% 19%, 100% 72%, 56% 57%, 47% 81%, 0 72%, 0 26%);\n}\n50% {\n    -webkit-clip-path: polygon(38% 43%, 44% 19%, 99% 71%, 56% 57%, 47% 80%, 1% 73%, 0 25%);\n            clip-path: polygon(38% 43%, 44% 19%, 99% 71%, 56% 57%, 47% 80%, 1% 73%, 0 25%);\n}\n75% {\n    -webkit-clip-path: polygon(38% 42%, 42% 19%, 100% 71%, 56% 57%, 48% 82%, 0 71%, 0 26%);\n            clip-path: polygon(38% 42%, 42% 19%, 100% 71%, 56% 57%, 48% 82%, 0 71%, 0 26%);\n}\n100% {\n    -webkit-clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n            clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n}\n}\n@keyframes arrowBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n            clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n}\n25% {\n    -webkit-clip-path: polygon(38% 43%, 43% 19%, 100% 72%, 56% 57%, 47% 81%, 0 72%, 0 26%);\n            clip-path: polygon(38% 43%, 43% 19%, 100% 72%, 56% 57%, 47% 81%, 0 72%, 0 26%);\n}\n50% {\n    -webkit-clip-path: polygon(38% 43%, 44% 19%, 99% 71%, 56% 57%, 47% 80%, 1% 73%, 0 25%);\n            clip-path: polygon(38% 43%, 44% 19%, 99% 71%, 56% 57%, 47% 80%, 1% 73%, 0 25%);\n}\n75% {\n    -webkit-clip-path: polygon(38% 42%, 42% 19%, 100% 71%, 56% 57%, 48% 82%, 0 71%, 0 26%);\n            clip-path: polygon(38% 42%, 42% 19%, 100% 71%, 56% 57%, 48% 82%, 0 71%, 0 26%);\n}\n100% {\n    -webkit-clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n            clip-path: polygon(38% 43%, 44% 19%, 100% 71%, 56% 57%, 47% 80%, 0 73%, 0 26%);\n}\n}\n@-webkit-keyframes backgroundWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n            clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n}\n25% {\n    -webkit-clip-path: polygon(2% 0, 90% 0, 99% 86%, 10% 100%);\n            clip-path: polygon(2% 0, 90% 0, 99% 86%, 10% 100%);\n}\n50% {\n    -webkit-clip-path: polygon(0 0, 90% 2%, 100% 87%, 11% 100%);\n            clip-path: polygon(0 0, 90% 2%, 100% 87%, 11% 100%);\n}\n75% {\n    -webkit-clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 99%);\n            clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 99%);\n}\n100% {\n    -webkit-clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n            clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n}\n}\n@keyframes backgroundWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n            clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n}\n25% {\n    -webkit-clip-path: polygon(2% 0, 90% 0, 99% 86%, 10% 100%);\n            clip-path: polygon(2% 0, 90% 0, 99% 86%, 10% 100%);\n}\n50% {\n    -webkit-clip-path: polygon(0 0, 90% 2%, 100% 87%, 11% 100%);\n            clip-path: polygon(0 0, 90% 2%, 100% 87%, 11% 100%);\n}\n75% {\n    -webkit-clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 99%);\n            clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 99%);\n}\n100% {\n    -webkit-clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n            clip-path: polygon(0 0, 90% 0, 100% 87%, 10% 100%);\n}\n}\n@-webkit-keyframes backgroundBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n            clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n}\n25% {\n    -webkit-clip-path: polygon(0 0, 92% 0, 100% 87%, 9% 100%);\n            clip-path: polygon(0 0, 92% 0, 100% 87%, 9% 100%);\n}\n50% {\n    -webkit-clip-path: polygon(0 0, 93% 1%, 100% 87%, 8% 99%);\n            clip-path: polygon(0 0, 93% 1%, 100% 87%, 8% 99%);\n}\n75% {\n    -webkit-clip-path: polygon(1% 1%, 93% 0, 99% 87%, 8% 100%);\n            clip-path: polygon(1% 1%, 93% 0, 99% 87%, 8% 100%);\n}\n100% {\n    -webkit-clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n            clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n}\n}\n@keyframes backgroundBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n            clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n}\n25% {\n    -webkit-clip-path: polygon(0 0, 92% 0, 100% 87%, 9% 100%);\n            clip-path: polygon(0 0, 92% 0, 100% 87%, 9% 100%);\n}\n50% {\n    -webkit-clip-path: polygon(0 0, 93% 1%, 100% 87%, 8% 99%);\n            clip-path: polygon(0 0, 93% 1%, 100% 87%, 8% 99%);\n}\n75% {\n    -webkit-clip-path: polygon(1% 1%, 93% 0, 99% 87%, 8% 100%);\n            clip-path: polygon(1% 1%, 93% 0, 99% 87%, 8% 100%);\n}\n100% {\n    -webkit-clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n            clip-path: polygon(0 0, 93% 0, 100% 87%, 8% 100%);\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\n  font-family: \"Kosugi Maru\", sans-serif !important;\n}\n.prewrap {\n  white-space: pre-wrap;\n}\n.break-word {\n  word-wrap: break-word;\n}\n.opponent-wrapper {\n  display: flex;\n  justify-content: flex-start;\n  width: 100%;\n}\n.opponent-message-window {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  position: relative;\n}\n.opponent-message-window .opponent-message-area {\n  left: 20px;\n}\n.opponent-message-window .opponent-message-area > .opponent-content {\n  position: relative;\n}\n.opponent-message-window .opponent-message-area > .opponent-content .opponent-arrow-white {\n  background-color: #fff;\n  position: absolute;\n  width: 33px;\n  height: 20px;\n  bottom: 22px;\n  left: -18px;\n  z-index: 30;\n  -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n          clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n  -webkit-animation-name: opponentArrowWhiteAnimation;\n          animation-name: opponentArrowWhiteAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.opponent-message-window .opponent-message-area > .opponent-content .opponent-arrow-black {\n  background-color: #000;\n  position: absolute;\n  width: 37px;\n  height: 20px;\n  bottom: 22px;\n  left: -18px;\n  z-index: 40;\n  -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n          clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n  -webkit-animation-name: opponentArrowBlackAnimation;\n          animation-name: opponentArrowBlackAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.opponent-message-window .opponent-message-area > .opponent-content .opponent-background-white {\n  background-color: #fff;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n  -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n          clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n  -webkit-animation-name: opponentBackgroundWhiteAnimation;\n          animation-name: opponentBackgroundWhiteAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.opponent-message-window .opponent-message-area > .opponent-content .opponent-background-black {\n  background-color: #000;\n  position: absolute;\n  width: calc(100% - 25px);\n  height: calc(100% - 12px);\n  margin-left: 5px;\n  margin-right: 20px;\n  margin-top: 5px;\n  margin-bottom: 7px;\n  z-index: 50;\n  -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n          clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n  -webkit-animation-name: opponentBackgroundBlackAnimation;\n          animation-name: opponentBackgroundBlackAnimation;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.opponent-message-window .opponent-message-area > .opponent-content .opponent-text-area {\n  color: #fff;\n  font-size: 20px;\n  margin-left: 5px;\n  margin-right: 50px;\n  margin-top: 5px;\n  margin-bottom: 7px;\n  padding-left: 30px;\n  padding-right: 30px;\n  padding-top: 15px;\n  padding-bottom: 20px;\n  line-height: 1.2em;\n  position: inherit;\n  z-index: 60;\n}\n@-webkit-keyframes opponentArrowWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n25% {\n    -webkit-clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n}\n50% {\n    -webkit-clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n            clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n            clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n}\n@keyframes opponentArrowWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n25% {\n    -webkit-clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 18%, 99% 73%, 50% 99%, 44% 56%, 0 72%, 55% 8%);\n}\n50% {\n    -webkit-clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n            clip-path: polygon(61% 43%, 98% 17%, 100% 73%, 48% 100%, 43% 56%, 1% 71%, 56% 8%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n            clip-path: polygon(62% 44%, 100% 17%, 100% 72%, 50% 100%, 44% 58%, 0 71%, 55% 9%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n            clip-path: polygon(62% 43%, 100% 17%, 100% 73%, 50% 100%, 44% 56%, 0 71%, 55% 8%);\n}\n}\n@-webkit-keyframes opponentArrowBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n25% {\n    -webkit-clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n            clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n}\n50% {\n    -webkit-clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n            clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n            clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n}\n@keyframes opponentArrowBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n25% {\n    -webkit-clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n            clip-path: polygon(63% 43%, 100% 26%, 98% 73%, 53% 80%, 42% 56%, 1% 71%, 56% 19%);\n}\n50% {\n    -webkit-clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n            clip-path: polygon(62% 44%, 100% 27%, 100% 72%, 53% 81%, 44% 57%, 0 74%, 56% 18%);\n}\n75% {\n    -webkit-clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n            clip-path: polygon(62% 43%, 99% 26%, 100% 73%, 54% 80%, 44% 56%, 0 71%, 57% 19%);\n}\n100% {\n    -webkit-clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n            clip-path: polygon(62% 43%, 100% 26%, 100% 73%, 53% 80%, 44% 56%, 0 71%, 56% 19%);\n}\n}\n@-webkit-keyframes opponentBackgroundWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n            clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n            clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n}\n@keyframes opponentBackgroundWhiteAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n            clip-path: polygon(6% 0, 98% 1%, 90% 100%, 1% 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n            clip-path: polygon(6% 2%, 100% 0, 89% 100%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 99%, 0 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 90% 100%, 0 87%);\n}\n}\n@-webkit-keyframes opponentBackgroundBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n            clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n            clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n            clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n}\n@keyframes opponentBackgroundBlackAnimation {\n0% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n25% {\n    -webkit-clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n            clip-path: polygon(7% 0, 100% 0, 94% 100%, 0 88%);\n}\n50% {\n    -webkit-clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n            clip-path: polygon(6% 1%, 100% 0, 95% 99%, 0 87%);\n}\n75% {\n    -webkit-clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n            clip-path: polygon(6% 0, 99% 1%, 95% 100%, 1% 87%);\n}\n100% {\n    -webkit-clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n            clip-path: polygon(6% 0, 100% 0, 95% 100%, 0 87%);\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".opponent-face-back-black {\n  width: 100px;\n  height: 100px;\n  background-color: black;\n  -webkit-clip-path: polygon(0 0, 100% 15%, 100% 87%, 14% 100%);\n          clip-path: polygon(0 0, 100% 15%, 100% 87%, 14% 100%);\n  z-index: 500;\n}", ""]);
 
 // exports
 
@@ -8814,7 +8912,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.chat-box {\n    height: 400px;\n}\n.card-body {\n    overflow-y: scroll;\n    background-color: rgb(201, 231, 231);\n}\n.card-text {\n    font-size: 20px;\n    line-height: 18px;\n}\n", ""]);
+exports.push([module.i, "\n.f-right {\n    float: right;\n}\n.chat-box {\n    height: 400px;\n}\n.card-body {\n    overflow-y: scroll;\n    background-color: rgb(202, 11, 11);\n    min-height: 400px !important;\n    border: 5px solid;\n    border-color: black;\n}\n.card-text {\n    font-size: 20px;\n    line-height: 18px;\n}\n.text-al-end {\n    text-align: end;\n}\n", ""]);
 
 // exports
 
@@ -47627,6 +47725,66 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MessageComponent.vue?vue&type=style&index=0&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MessageComponent.vue?vue&type=style&index=0&lang=css& ***!
@@ -48344,34 +48502,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "wrapper",
-      class: { "text-success": _vm.chat.read_at != null }
-    },
-    [
-      _c("div", { staticClass: "message-window" }, [
-        _c("div", { staticClass: "message-area" }, [
-          _c("div", { staticClass: "content" }, [
-            _c("div", { staticClass: "arrow-white" }),
+  return _c("div", { staticClass: "wrapper" }, [
+    _c("div", { staticClass: "message-window" }, [
+      _c("div", { staticClass: "message-area" }, [
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "arrow-white" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "arrow-black" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "background-white" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "background-black" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-area" }, [
+            _c(
+              "div",
+              {
+                staticClass: "prewrap break-word",
+                class: { "text-success": _vm.chat.read_at != null }
+              },
+              [_vm._v(_vm._s(_vm.chat.message))]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "arrow-black" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "background-white" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "background-black" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-area" }, [
-              _c("div", [_vm._v(_vm._s(_vm.chat.message))]),
-              _vm._v(" "),
-              _c("div", [_vm._v(_vm._s(_vm.chat.read_at))])
+            _c("div", { staticClass: "ex-small text-al-end" }, [
+              _vm._v(_vm._s(_vm.chat.read_at))
             ])
           ])
         ])
       ])
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48595,19 +48755,24 @@ var render = function() {
         staticClass: "card-body"
       },
       [
-        _vm.chat.type == 0
-          ? _vm._l(_vm.chats, function(chat) {
-              return _c("balloon-component", {
-                key: chat.id,
-                attrs: { chat: chat }
-              })
-            })
-          : _vm._l(_vm.chats, function(chat) {
-              return _c("opponent-balloon-component", {
-                key: chat.id,
-                attrs: { chat: chat }
-              })
-            })
+        _vm._l(_vm.chats, function(chat) {
+          return [
+            chat.type == 0
+              ? _c("balloon-component", { key: chat.id, attrs: { chat: chat } })
+              : _vm._e(),
+            _vm._v(" "),
+            chat.type != 0
+              ? _c("opponent-face-component", { attrs: { chat: chat } })
+              : _vm._e(),
+            _vm._v(" "),
+            chat.type != 0
+              ? _c("opponent-balloon-component", {
+                  key: chat.id,
+                  attrs: { chat: chat }
+                })
+              : _vm._e()
+          ]
+        })
       ],
       2
     ),
@@ -48617,15 +48782,20 @@ var render = function() {
       {
         staticClass: "card-footer",
         on: {
-          submit: function($event) {
-            $event.preventDefault()
+          keyup: function($event) {
+            if (!$event.type.indexOf("key") && $event.keyCode !== 13) {
+              return null
+            }
+            if (!$event.ctrlKey) {
+              return null
+            }
             return _vm.send($event)
           }
         }
       },
       [
         _c("div", { staticClass: "form-group" }, [
-          _c("input", {
+          _c("textarea", {
             directives: [
               {
                 name: "model",
@@ -48651,7 +48821,11 @@ var render = function() {
                 _vm.message = $event.target.value
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "f-right" }, [
+            _vm._v("Ctrl + Enterでメッセージを送信")
+          ])
         ])
       ]
     )
@@ -48681,6 +48855,76 @@ var staticRenderFns = [
     )
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=template&id=645f2a14&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentBalloonComponent.vue?vue&type=template&id=645f2a14& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "opponent-wrapper" }, [
+    _c("div", { staticClass: "opponent-message-window" }, [
+      _c("div", { staticClass: "opponent-message-area" }, [
+        _c("div", { staticClass: "opponent-content" }, [
+          _c("div", { staticClass: "opponent-arrow-white" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "opponent-arrow-black" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "opponent-background-white" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "opponent-background-black" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "opponent-text-area" }, [
+            _c("div", { staticClass: "prewrap break-word" }, [
+              _vm._v(_vm._s(_vm.chat.message))
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(_vm.chat.read_at))])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=template&id=304511e8&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OpponentFaceComponent.vue?vue&type=template&id=304511e8& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "opponent-face-back-black" })
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -60856,7 +61100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ChatComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ChatComponent.vue */ "./resources/js/components/ChatComponent.vue");
 /* harmony import */ var _components_MessageComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/MessageComponent.vue */ "./resources/js/components/MessageComponent.vue");
 /* harmony import */ var _components_BalloonComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/BalloonComponent.vue */ "./resources/js/components/BalloonComponent.vue");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './components/OpponentBalloonComponent.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _components_OpponentBalloonComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/OpponentBalloonComponent.vue */ "./resources/js/components/OpponentBalloonComponent.vue");
+/* harmony import */ var _components_OpponentFaceComponent_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/OpponentFaceComponent.vue */ "./resources/js/components/OpponentFaceComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -60881,6 +61126,7 @@ Vue.use(__webpack_require__(/*! vue-chat-scroll */ "./node_modules/vue-chat-scro
 
 
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -60893,7 +61139,8 @@ var app = new Vue({
     ChatComponent: _components_ChatComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MessageComponent: _components_MessageComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     BalloonComponent: _components_BalloonComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    OpponentBalloonComponent: !(function webpackMissingModule() { var e = new Error("Cannot find module './components/OpponentBalloonComponent.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    OpponentBalloonComponent: _components_OpponentBalloonComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    OpponentFaceComponent: _components_OpponentFaceComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 
@@ -61191,6 +61438,180 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentBalloonComponent.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/OpponentBalloonComponent.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _OpponentBalloonComponent_vue_vue_type_template_id_645f2a14___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OpponentBalloonComponent.vue?vue&type=template&id=645f2a14& */ "./resources/js/components/OpponentBalloonComponent.vue?vue&type=template&id=645f2a14&");
+/* harmony import */ var _OpponentBalloonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OpponentBalloonComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/OpponentBalloonComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _OpponentBalloonComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _OpponentBalloonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OpponentBalloonComponent_vue_vue_type_template_id_645f2a14___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _OpponentBalloonComponent_vue_vue_type_template_id_645f2a14___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/OpponentBalloonComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentBalloonComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/OpponentBalloonComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentBalloonComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentBalloonComponent.vue?vue&type=template&id=645f2a14&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/OpponentBalloonComponent.vue?vue&type=template&id=645f2a14& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_template_id_645f2a14___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentBalloonComponent.vue?vue&type=template&id=645f2a14& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentBalloonComponent.vue?vue&type=template&id=645f2a14&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_template_id_645f2a14___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentBalloonComponent_vue_vue_type_template_id_645f2a14___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentFaceComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/OpponentFaceComponent.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _OpponentFaceComponent_vue_vue_type_template_id_304511e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OpponentFaceComponent.vue?vue&type=template&id=304511e8& */ "./resources/js/components/OpponentFaceComponent.vue?vue&type=template&id=304511e8&");
+/* harmony import */ var _OpponentFaceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OpponentFaceComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/OpponentFaceComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _OpponentFaceComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _OpponentFaceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OpponentFaceComponent_vue_vue_type_template_id_304511e8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _OpponentFaceComponent_vue_vue_type_template_id_304511e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/OpponentFaceComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentFaceComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/OpponentFaceComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentFaceComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/OpponentFaceComponent.vue?vue&type=template&id=304511e8&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/OpponentFaceComponent.vue?vue&type=template&id=304511e8& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_template_id_304511e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./OpponentFaceComponent.vue?vue&type=template&id=304511e8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OpponentFaceComponent.vue?vue&type=template&id=304511e8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_template_id_304511e8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OpponentFaceComponent_vue_vue_type_template_id_304511e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

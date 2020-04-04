@@ -49,8 +49,6 @@ body {
 }
 
 .wrapper {
-    display: flex;
-    justify-content: flex-end;
     width: 100%;
 }
 .message-window {

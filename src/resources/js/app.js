@@ -25,6 +25,8 @@ import ChatComponent from './components/ChatComponent.vue'
 import MessageComponent from './components/MessageComponent.vue'
 import BalloonComponent from './components/BalloonComponent.vue'
 import OpponentBalloonComponent from './components/OpponentBalloonComponent.vue'
+import OpponentFaceComponent from './components/OpponentFaceComponent.vue'
+import IsTypingComponent from './components/IsTypingComponent.vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -34,5 +36,5 @@ import OpponentBalloonComponent from './components/OpponentBalloonComponent.vue'
 
 const app = new Vue({
     el: '#app',
-    components: { ChatComponent, MessageComponent, BalloonComponent, OpponentBalloonComponent }
+    components: { ChatComponent, MessageComponent, BalloonComponent, OpponentBalloonComponent, OpponentFaceComponent, IsTypingComponent }
 });

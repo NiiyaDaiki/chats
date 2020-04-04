@@ -3,7 +3,7 @@
         <div class="card-header">
             <b :class="{'text-danger':session.block}">
                 {{friend.name}}
-                <span v-if="isTyping">が入力中...</span>
+                <span v-if="friendIsTyping">が入力中...</span>
                 <span v-if="session.block">(ブロック中)</span>
             </b>
             <!-- Close Button -->
@@ -40,7 +40,10 @@
             </div>
             <!-- Option Button End-->
         </div>
-        <div class="card-body" v-chat-scroll>
+        <div
+            class="card-body"
+            v-chat-scroll="{always: false, smooth: false, scrollonremoved:true, smoothonremoved: true}"
+        >
             <!-- <p
                 class="card-text"
                 :class="{'text-right':chat.type == 0, 'text-success':chat.read_at != null }"
@@ -52,15 +55,24 @@
                 <span style="font-size:8px">{{chat.read_at}}</span>
             </p>
             -->
-            <template v-for="chat in chats">
-                <balloon-component v-if="chat.type == 0" :key="chat.id" :chat="chat"></balloon-component>
-                <opponent-balloon-component v-else :key="chat.id" :chat="chat"></opponent-balloon-component>
+            <template v-for="chat in chats" class="fit-content">
+                <div :key="chat.id">
+                    <div v-if="chat.type == 0" class="wrapper">
+                        <balloon-component :chat="chat"></balloon-component>
+                    </div>
+                    <div v-if="chat.type != 0" class="opponent-wrapper">
+                        <opponent-face-component :chat="chat"></opponent-face-component>
+                        <opponent-balloon-component :chat="chat"></opponent-balloon-component>
+                    </div>
+                </div>
             </template>
+            <is-typing-component class="opponent-wrapper" v-if="friendIsTyping"></is-typing-component>
         </div>
         <!-- <form class="card-footer" @submit.prevent="send"> -->
         <form class="card-footer" @keyup.ctrl.13="send">
             <div class="form-group">
                 <textarea
+                    @input="focusInput($event.target.value)"
                     type="text"
                     class="form-control"
                     :placeholder="session.block ? 'ブロック中のため入力できません':'メッセージを入力してください'"
@@ -76,6 +88,8 @@
 <script>
 import BalloonComponent from "./BalloonComponent";
 import OpponentBalloonComponent from "./OpponentBalloonComponent";
+import OpponentFaceComponent from "./OpponentFaceComponent";
+import IsTypingComponent from "./IsTypingComponent";
 
 export default {
     props: ["friend"],
@@ -83,7 +97,8 @@ export default {
         return {
             chats: [],
             message: null,
-            isTyping: false
+            friendIsTyping: false,
+            timer: null
         };
     },
     computed: {
@@ -92,18 +107,6 @@ export default {
         },
         can() {
             return this.session.blocked_by == auth.id;
-        }
-    },
-    watch: {
-        message(value) {
-            if (value) {
-                Echo.private(`Chat.${this.friend.session.id}`).whisper(
-                    "typing",
-                    {
-                        name: auth.name
-                    }
-                );
-            }
         }
     },
     methods: {
@@ -156,6 +159,16 @@ export default {
         },
         read() {
             axios.post(`/session/${this.friend.session.id}/read`);
+        },
+        focusInput(value) {
+            if (!this.friendIsTyping || !this.typingEventCount) {
+                Echo.private(`Chat.${this.friend.session.id}`).whisper(
+                    "typing",
+                    {
+                        name: auth.name
+                    }
+                );
+            }
         }
     },
     created() {
@@ -167,6 +180,7 @@ export default {
             "PrivateChatEvent",
             e => {
                 this.friend.session.open ? this.read() : "";
+                this.friendIsTyping = false;
                 this.chats.push({
                     message: e.content,
                     type: 1,
@@ -191,21 +205,36 @@ export default {
         Echo.private(`Chat.${this.friend.session.id}`).listenForWhisper(
             "typing",
             e => {
-                this.isTyping = true;
-                setTimeout(() => {
-                    this.isTyping = false;
+                // タイマーをリセット
+                clearTimeout(this.timer);
+
+                this.friendIsTyping = true;
+                this.timer = setTimeout(() => {
+                    this.friendIsTyping = false;
                 }, 2000);
             }
         );
     },
     components: {
         BalloonComponent,
-        OpponentBalloonComponent
+        OpponentBalloonComponent,
+        OpponentFaceComponent,
+        IsTypingComponent
     }
 };
 </script>
 
 <style>
+.wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.opponent-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
 .f-right {
     float: right;
 }
@@ -214,10 +243,18 @@ export default {
 }
 .card-body {
     overflow-y: scroll;
+    overflow-x: hidden;
     background-color: rgb(202, 11, 11);
     min-height: 400px !important;
     border: 5px solid;
     border-color: black;
+
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+}
+
+.card-body::-webkit-scrollbar {
+    display: none;
 }
 .card-text {
     font-size: 20px;
