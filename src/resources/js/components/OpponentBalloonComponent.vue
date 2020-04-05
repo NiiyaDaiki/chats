@@ -102,7 +102,7 @@ body {
             .opponent-background-white {
                 background-color: #fff;
                 position: absolute;
-                width: 110%;
+                width: calc(100% + 30px);
                 height: 100%;
                 // z-index: 40;
                 z-index: 10;
@@ -118,7 +118,7 @@ body {
                 background-color: #000;
                 position: absolute;
 
-                width: 102%;
+                width: calc(100% + 5px);
                 height: calc(100% - 12px);
                 margin-left: 5px;
                 margin-right: 20px;

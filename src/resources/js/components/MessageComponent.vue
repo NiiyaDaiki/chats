@@ -55,7 +55,7 @@
                 <span style="font-size:8px">{{chat.read_at}}</span>
             </p>
             -->
-            <template v-for="chat in chats" class="fit-content">
+            <template v-for="chat in chats">
                 <div :key="chat.id">
                     <div v-if="chat.type == 0" class="wrapper">
                         <balloon-component :chat="chat"></balloon-component>
@@ -227,7 +227,8 @@ export default {
 <style>
 .wrapper {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    position: relative;
 }
 
 .opponent-wrapper {

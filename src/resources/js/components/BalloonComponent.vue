@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="ballon-wrapper">
         <div class="message-window">
             <div class="message-area">
                 <div class="content">
@@ -8,13 +8,11 @@
 
                     <div class="background-white"></div>
                     <div class="background-black"></div>
-                    <div class="text-area">
-                        <div
-                            class="prewrap break-word"
-                            :class="{'text-success':chat.read_at != null }"
-                        >{{chat.message}}</div>
-                        <div class="ex-small text-al-end">{{chat.read_at}}</div>
-                    </div>
+                    <div
+                        class="text-area prewrap break-word"
+                        :class="{'text-success':chat.read_at != null }"
+                    >{{chat.message}}</div>
+                    <!-- <span class="ex-small text-al-end">{{chat.read_at}}</span> -->
                 </div>
             </div>
         </div>
@@ -48,16 +46,12 @@ body {
     word-wrap: break-word;
 }
 
-.wrapper {
-    width: 100%;
+.ballon-wrapper {
+    // 顔アイコンを表示する必要がないため、可変にする必要なし
+    max-width: 75%;
 }
 .message-window {
-    width: fit-content;
-    position: relative;
-
     .message-area {
-        right: 20px;
-
         > .content {
             position: relative;
 
@@ -111,12 +105,13 @@ body {
                 animation-iteration-count: infinite;
             }
 
-            .background-white {
+            .background-black {
                 background-color: black;
                 position: absolute;
-                width: 100%;
+                width: calc(100% + 65px);
                 height: 100%;
-                left: 3px;
+                right: -7px;
+                // left: 10px;
                 // z-index: 40;
                 z-index: 10;
 
@@ -127,12 +122,12 @@ body {
                 animation-iteration-count: infinite;
             }
 
-            .background-black {
+            .background-white {
                 background-color: white;
                 position: absolute;
-                right: 5px;
+                right: -1px;
 
-                width: calc(100% - 25px);
+                width: calc(100% + 25px);
                 height: calc(100% - 12px);
                 margin-left: 20px;
                 margin-right: 5px;
@@ -149,15 +144,25 @@ body {
                 animation-iteration-count: infinite;
             }
             .text-area {
+                max-width: 102%;
+                width: max-content;
+                right: 30px;
+
+                // text-align: right;
                 color: black;
-                font-size: 20px;
-                margin-left: 50px;
+                @media screen and (max-width: 480px) {
+                    font-size: 14px;
+                }
+                @media screen and (min-width: 480px) {
+                    font-size: 20px;
+                }
+                margin-left: 30px;
                 margin-right: 5px;
                 margin-top: 5px;
                 margin-bottom: 7px;
 
-                padding-left: 30px;
-                padding-right: 30px;
+                padding-left: 5%;
+                padding-right: 10%;
                 padding-top: 15px;
                 padding-bottom: 20px;
 
