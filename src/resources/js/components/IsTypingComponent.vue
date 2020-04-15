@@ -1,6 +1,6 @@
 <template>
     <div class="ellipsis-background">
-        <div class="ellipsis"></div>
+        <div class="ellipsis1"></div>
         <div class="ellipsis2"></div>
         <div class="ellipsis3"></div>
     </div>
@@ -19,7 +19,7 @@ export default {};
         height: 23%;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px) {
-        width: 18%;
+        width: 22%;
         height: 23%;
     }
     @media screen and (min-width: 1024px) {
@@ -45,15 +45,16 @@ export default {};
     z-index: 100;
 }
 
-.ellipsis {
+.ellipsis1 {
     position: absolute;
     width: 7%;
     height: 7%;
     left: 100% - 55%;
-    top: 100% - 32%;
+    top: 100% - 33%;
     clip-path: circle(50% at 50% 50%);
     background-color: rgb(202, 11, 11);
     z-index: 110;
+    animation: flash1 2s  infinite;
 }
 .ellipsis2 {
     position: absolute;
@@ -64,6 +65,7 @@ export default {};
     clip-path: circle(50% at 50% 50%);
     background-color: rgb(202, 11, 11);
     z-index: 120;
+    animation: flash2 2s  infinite;
 }
 .ellipsis3 {
     position: absolute;
@@ -74,5 +76,74 @@ export default {};
     clip-path: circle(50% at 50% 50%);
     background-color: rgb(202, 11, 11);
     z-index: 130;
+    animation: flash3 2s  infinite;
+}
+
+@keyframes flash1 {
+    0% {
+        opacity: 0;
+    }
+    19% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    66%{
+        opacity: 1;
+    }
+    67%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes flash2 {
+    0% {
+        opacity: 0;
+    }
+    29% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    71%{
+        opacity: 1;
+    }
+    72%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+
+@keyframes flash3 {
+    0% {
+        opacity: 0;
+    }
+    39% {
+      opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    76%{
+        opacity: 1;
+    }
+    77%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+
 }
 </style>

@@ -39,9 +39,9 @@ window.Echo = new Echo({
     // host: 'http://localhost:6001',
 
     broadcaster: 'pusher',
-    key: process.env.MIX_PUSHER_APP_KEY,
+    // key: process.env.MIX_PUSHER_APP_KEY,
     key: "myKey",
-    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    // cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     cluster: "myCluster",
     wsHost: window.location.hostname,
     wsPort: 6001,

@@ -144,7 +144,7 @@ body {
                 animation-iteration-count: infinite;
             }
             .text-area {
-                max-width: 104%;
+                max-width: 105%;
                 width: max-content;
                 right: 30px;
 
@@ -157,7 +157,7 @@ body {
                     font-size: 20px;
                 }
                 margin-left: 30px;
-                margin-right: 5px;
+                margin-right: 9px;
                 margin-top: 5px;
                 margin-bottom: 7px;
 
