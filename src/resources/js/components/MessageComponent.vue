@@ -55,12 +55,12 @@
                 <span style="font-size:8px">{{chat.read_at}}</span>
             </p>
             -->
-            <template v-for="chat in chats">
-                <div :key="chat.id">
+            <template v-for="(chat, index) in chats">
+                <div class="min-h-100" :key="chat.id">
                     <div v-if="chat.type == 0" class="wrapper">
                         <balloon-component :chat="chat"></balloon-component>
                     </div>
-                    <div v-if="chat.type != 0" class="opponent-wrapper">
+                    <div v-if="chat.type != 0" class="opponent-wrapper" :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0 }">
                         <opponent-face-component :chat="chat"></opponent-face-component>
                         <opponent-balloon-component :chat="chat"></opponent-balloon-component>
                     </div>
@@ -224,7 +224,35 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.min-h-100 {
+    min-height: 100px;
+}
+
+.right-flex {
+    @media screen and (max-width: 480px) {
+        right: 3%;
+    }
+    @media screen and (min-width: 480px) and (max-width: 1024px) {
+        right: 3%;
+    }
+    @media screen and (min-width: 1024px) {
+        right: 2%;
+    }
+}
+
+.left-flex{
+    @media screen and (max-width: 480px) {
+        left: 3%;
+    }
+    @media screen and (min-width: 480px) and (max-width: 1024px) {
+        left: 3%;
+    }
+    @media screen and (min-width: 1024px) {
+        left: 2%;
+    }
+}
+
 .wrapper {
     display: flex;
     flex-direction: row-reverse;
