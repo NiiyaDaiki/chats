@@ -27,6 +27,7 @@ import BalloonComponent from './components/BalloonComponent.vue'
 import OpponentBalloonComponent from './components/OpponentBalloonComponent.vue'
 import OpponentFaceComponent from './components/OpponentFaceComponent.vue'
 import IsTypingComponent from './components/IsTypingComponent.vue'
+import ImageUploadComponent from './components/ImageUploadComponent.vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,5 +37,24 @@ import IsTypingComponent from './components/IsTypingComponent.vue'
 
 const app = new Vue({
     el: '#app',
-    components: { ChatComponent, MessageComponent, BalloonComponent, OpponentBalloonComponent, OpponentFaceComponent, IsTypingComponent }
+    components: {
+        ChatComponent,
+        MessageComponent,
+        BalloonComponent,
+        OpponentBalloonComponent,
+        OpponentFaceComponent,
+        IsTypingComponent,
+        ImageUploadComponent
+    },
+    data: {
+        showModal: false
+    },
+    methods: {
+        openModal() {
+            this.showModal = true
+        },
+        closeModal() {
+            this.showModal = false
+        }
+    }
 });

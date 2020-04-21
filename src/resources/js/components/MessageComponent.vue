@@ -60,7 +60,11 @@
                     <div v-if="chat.type == 0" class="wrapper">
                         <balloon-component :chat="chat"></balloon-component>
                     </div>
-                    <div v-if="chat.type != 0" class="opponent-wrapper" :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0 }">
+                    <div
+                        v-if="chat.type != 0"
+                        class="opponent-wrapper"
+                        :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0 }"
+                    >
                         <opponent-face-component :chat="chat"></opponent-face-component>
                         <opponent-balloon-component :chat="chat"></opponent-balloon-component>
                     </div>
@@ -241,7 +245,7 @@ export default {
     }
 }
 
-.left-flex{
+.left-flex {
     @media screen and (max-width: 480px) {
         left: 3%;
     }
