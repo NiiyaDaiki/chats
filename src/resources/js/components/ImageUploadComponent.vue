@@ -3,9 +3,16 @@
         <div id="content" @click="stopEvent()">
             <p>画像アップロード</p>
 
-            <input type="file" name="image" v-on:change="fileSelected" />
-            <input type="submit" value="アップロード" @click="uploadImage()" />
-            <button @click="closeEvent()">close</button>
+            <div class="form-group">
+                <input class="form-control-file" type="file" name="image" @change="fileSelected" />
+            </div>
+            <div class="form-group">
+                <input class="btn btn-info form-control" type="submit" value="アップロード" @click="uploadImage()" />
+            </div>
+            <p v-if="beforeUpload">{{this.text}}</p>
+            <p v-if="success" class="text-success">{{this.successText}}</p>
+            <p v-if="failure" class="text-danger">{{this.failureText}}</p>
+            <button class="btn btn-secondary" @click="closeEvent()">close</button>
         </div>
     </div>
 </template>
@@ -14,7 +21,13 @@
 export default {
     data: function() {
         return {
-            fileInfo: []
+            fileInfo: [],
+            text: '画像を選択してアップロードしてください。',
+            beforeUpload: true,
+            success: false,
+            successText: 'アップロードに成功しました！',
+            failure: false,
+            failureText: 'アップロードに失敗しました...'
         };
     },
     methods: {
@@ -32,8 +45,9 @@ export default {
             formData.append("file", this.fileInfo);
             axios
                 .post(`/user-icon/${auth.id}/upload`, formData)
-                .then(res => console.log(res))
-                .catch(error => console.log(error));
+                .then(res => this.success = true)
+                .catch(error => this.failure = true)
+                .finally(res => this.beforeUpload = false);
         }
     }
 };
@@ -41,10 +55,10 @@ export default {
 
 <style>
 #overlay {
-    /*　要素を重ねた時の順番　*/
+    /* 要素を重ねた時の順番 */
     z-index: 100;
 
-    /*　画面全体を覆う設定　*/
+    /* 画面全体を覆う設定 */
     position: fixed;
     top: 0;
     left: 0;
@@ -52,7 +66,7 @@ export default {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 
-    /*　画面の中央に要素を表示させる設定　*/
+    /* 画面の中央に要素を表示させる設定 */
     display: flex;
     align-items: center;
     justify-content: center;

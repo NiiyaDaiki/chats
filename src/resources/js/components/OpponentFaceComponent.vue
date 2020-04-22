@@ -1,14 +1,16 @@
 <template>
     <div class="opponent-face-back-black">
         <div class="opponent-face-back-white">
-            <div class="opponent-face-back-orange"></div>
+            <div class="opponent-face-back-orange">
+                <img :src="'https://chats-user-icon.s3-ap-northeast-1.amazonaws.com/chats-user-icon/' + friendIcon.path">
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ["chat"]
+    props: ["chat","friendIcon"]
 };
 </script>
 

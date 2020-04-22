@@ -26,7 +26,12 @@ Route::post('/session/{session}/clear', 'ChatController@clear');
 Route::post('/session/{session}/block', 'BlockController@block');
 Route::post('/session/{session}/unblock', 'BlockController@unblock');
 Route::post('/send/{session}', 'ChatController@send');
+
+/*
+| UserIconsController
+*/
 Route::post('/user-icon/{id}/upload', 'UserIconsController@upload');
+Route::get('/user-icon/{id}/get', 'UserIconsController@get');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

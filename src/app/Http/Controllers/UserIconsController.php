@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserIconResource;
 use App\User;
 use App\Models\UserIcon;
 use Illuminate\Http\Request;
@@ -24,5 +25,11 @@ class UserIconsController extends Controller
         $userIcon->save();
 
         return response(null, 200);
+    }
+
+    public function get(int $id)
+    {
+        $userIcon = UserIcon::where('user_id',$id)->first();
+        return response(new UserIconResource($userIcon), 200);
     }
 }

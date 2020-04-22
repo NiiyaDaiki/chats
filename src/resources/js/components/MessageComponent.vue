@@ -65,7 +65,7 @@
                         class="opponent-wrapper"
                         :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0 }"
                     >
-                        <opponent-face-component :chat="chat"></opponent-face-component>
+                        <opponent-face-component :chat="chat" :friendIcon="friendIcon"></opponent-face-component>
                         <opponent-balloon-component :chat="chat"></opponent-balloon-component>
                     </div>
                 </div>
@@ -102,7 +102,8 @@ export default {
             chats: [],
             message: null,
             friendIsTyping: false,
-            timer: null
+            timer: null,
+            friendIcon: []
         };
     },
     computed: {
@@ -173,12 +174,19 @@ export default {
                     }
                 );
             }
+        },
+        getUserIcon() {
+            axios.get(`/user-icon/${this.friend.id}/get`).then(res => {
+                this.friendIcon = res.data;
+            });
         }
     },
     created() {
         this.read();
 
         this.getAllMessages();
+
+        this.getUserIcon();
 
         Echo.private(`Chat.${this.friend.session.id}`).listen(
             "PrivateChatEvent",
