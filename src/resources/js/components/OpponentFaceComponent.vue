@@ -1,16 +1,14 @@
 <template>
     <div class="opponent-face-back-black">
         <div class="opponent-face-back-white">
-            <div class="opponent-face-back-orange">
-                <img :src="'https://chats-user-icon.s3-ap-northeast-1.amazonaws.com/chats-user-icon/' + friendIcon.path">
-            </div>
+            <div class="opponent-face-back-orange"></div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ["chat","friendIcon"]
+    props: ["chat"]
 };
 </script>
 
@@ -18,11 +16,12 @@ export default {
 .opponent-face-back-black {
     // display: flex;
     // justify-content: flex-start;
-    // position: relative;
+    position: relative;
     // position: absolute;
     // bottom: 0;
     align-self: flex-end;
     align-items: flex-end;
+
     @media screen and (max-width: 480px) {
         width: 30%;
     }
@@ -32,7 +31,6 @@ export default {
     @media screen and (min-width: 1024px) {
         width: 15%;
     }
-
     height: 70px;
     background-color: black;
     clip-path: polygon(0 0, 95% 15%, 93% 79%, 20% 100%);
@@ -40,20 +38,21 @@ export default {
 }
 
 .opponent-face-back-white {
+    position: absolute;
     width: 100%;
     height: 100%;
     background-color: white;
-
     clip-path: polygon(10% 8%, 91% 20%, 91% 74%, 25% 88%);
     z-index: 20;
 }
 
 .opponent-face-back-orange {
+    // position: absolute;
     width: 100%;
     height: 100%;
     background-color: orange;
-
     clip-path: polygon(15% 17%, 89% 21%, 88% 70%, 27% 83%);
     z-index: 30;
 }
 </style>
+

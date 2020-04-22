@@ -65,8 +65,14 @@
                         class="opponent-wrapper"
                         :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0 }"
                     >
-                        <opponent-face-component :chat="chat" :friendIcon="friendIcon"></opponent-face-component>
+                        <opponent-face-component :chat="chat"></opponent-face-component>
                         <opponent-balloon-component :chat="chat"></opponent-balloon-component>
+                        <img
+                            v-show="friendIcon.id"
+                            class="img-position"
+                            :src="friendIcon.path"
+                            alt="ユーザーアイコン"
+                        />
                     </div>
                 </div>
             </template>
@@ -123,9 +129,12 @@ export default {
                         content: this.message,
                         to_user: this.friend.id
                     })
-                    .then(
-                        res => (this.chats[this.chats.length - 1].id = res.data)
-                    );
+                    .then(res => {
+                        this.chats[this.chats.length - 1].id = res.data;
+                        if (this.friendIcon.id) {
+                            this.getUserIcon();
+                        }
+                    });
                 this.message = null;
             }
         },
@@ -176,9 +185,12 @@ export default {
             }
         },
         getUserIcon() {
-            axios.get(`/user-icon/${this.friend.id}/get`).then(res => {
-                this.friendIcon = res.data;
-            });
+            axios
+                .get(`/user-icon/${this.friend.id}/get`)
+                .then(res => {
+                    this.friendIcon = res.data;
+                })
+                .catch(err => {});
         }
     },
     created() {
@@ -213,6 +225,14 @@ export default {
             "BlockEvent",
             e => (this.session.block = e.blocked)
         );
+
+        // Echo.private(`Chat.${this.friendIcon.id}`).listen(
+        //     "FriendIconEvent",
+        //     e => {
+        //         console.log(e);
+        //         this.friendIcon = e.friendIcon;
+        //     }
+        // );
 
         Echo.private(`Chat.${this.friend.session.id}`).listenForWhisper(
             "typing",
@@ -304,5 +324,12 @@ export default {
 
 .text-al-end {
     text-align: end;
+}
+
+.img-position {
+    position: absolute;
+    z-index: 100;
+    left: 3%;
+    bottom: 20%;
 }
 </style>

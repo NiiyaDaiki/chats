@@ -7,7 +7,12 @@
                 <input class="form-control-file" type="file" name="image" @change="fileSelected" />
             </div>
             <div class="form-group">
-                <input class="btn btn-info form-control" type="submit" value="アップロード" @click="uploadImage()" />
+                <input
+                    class="btn btn-info form-control"
+                    type="submit"
+                    value="アップロード"
+                    @click="uploadImage()"
+                />
             </div>
             <p v-if="beforeUpload">{{this.text}}</p>
             <p v-if="success" class="text-success">{{this.successText}}</p>
@@ -22,12 +27,12 @@ export default {
     data: function() {
         return {
             fileInfo: [],
-            text: '画像を選択してアップロードしてください。',
+            text: "画像を選択してアップロードしてください。",
             beforeUpload: true,
             success: false,
-            successText: 'アップロードに成功しました！',
+            successText: "アップロードに成功しました！",
             failure: false,
-            failureText: 'アップロードに失敗しました...'
+            failureText: "アップロードに失敗しました..."
         };
     },
     methods: {
@@ -45,9 +50,19 @@ export default {
             formData.append("file", this.fileInfo);
             axios
                 .post(`/user-icon/${auth.id}/upload`, formData)
-                .then(res => this.success = true)
-                .catch(error => this.failure = true)
-                .finally(res => this.beforeUpload = false);
+                .then(res => {
+                    this.success = true;
+                    if (this.failure) {
+                        this.failure = false;
+                    }
+                })
+                .catch(error => {
+                    this.failure = true;
+                    if (this.success) {
+                        this.success = false;
+                    }
+                })
+                .finally(res => (this.beforeUpload = false));
         }
     }
 };
