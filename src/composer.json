@@ -17,6 +17,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
+        "mtownsend/remove-bg": "^1.2",
         "pusher/pusher-php-server": "~4.0"
     },
     "require-dev": {
