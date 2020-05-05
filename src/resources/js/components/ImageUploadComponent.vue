@@ -55,6 +55,15 @@ export default {
                     if (this.failure) {
                         this.failure = false;
                     }
+
+                    // TODO 相手にリアルタイムに画像反映
+                    // Echo.private(`Chat.${this.friendIcon.id}`).listen(
+                    //     "FriendIconEvent",
+                    //     e => {
+                    //         console.log(e);
+                    //         this.friendIcon = e.friendIcon;
+                    //     }
+                    // );
                 })
                 .catch(error => {
                     this.failure = true;

@@ -31,22 +31,20 @@ class UserIconsController extends Controller
         $up_pass = $file->store('public/image');
         $image_pass = '/var/www/storage/app/public/image/' . basename($up_pass);
 
-        // Image::make($image_pass)
-        //     ->resize(72, 72, function ($constraint) {
-        //         $constraint->aspectRatio();
-        //     })->greyscale()->save();
-
-        // 画像の2値化
-        $imagick = new \Imagick($image_pass);
-        $imagick->thresholdImage('32000');
-
         // 画像を縦横72px・縦幅アスペクト比維持の自動サイズへリサイズ
-        $imagick->thumbnailImage(72,72);
+        $imagick = new \Imagick($image_pass);
+        $imagick->thumbnailImage(72, 72);
+        $imagick->writeImage('png:' . $image_pass);
 
         // // 画像の切り抜き(外部API(remove.bg)を使用)
         $api_key = 'SreXhaL18UoakKbGmJbNHASn';
         $removebg = new RemoveBg($api_key);
-        $removebg->file($file->path())->save($image_pass);
+        $removebg->file($image_pass)->save($image_pass);
+
+        // 画像の2値化
+        $imagick = new \Imagick($image_pass);
+        $imagick->thresholdImage('30000');
+        $imagick->writeImage('png:' . $image_pass);
 
         // // バケットの`images`フォルダへアップロード
         $fixedImage = Image::make($image_pass)->encode();
@@ -57,8 +55,9 @@ class UserIconsController extends Controller
         $userIcon->user_id = $user->id;
 
         $userIcon->save();
+        // TODO 相手にリアルタイムに画像反映
         // broadcast(new FriendIconEvent($userIcon));
-        return response(null, 200);
+        return response($userIcon, 200);
     }
 
     public function get(int $id)

@@ -9,10 +9,19 @@
             "type": "php",
             "request": "launch",
             "pathMappings": {
+                // 必ず/srcまで記入する。
                 "/var/www/": "${workspaceFolder}/src"
             },
             "log": true,
             "port": 9000
         },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9000
+        }
     ]
 }

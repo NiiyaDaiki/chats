@@ -44,6 +44,7 @@
             class="card-body"
             v-chat-scroll="{always: false, smooth: false, scrollonremoved:true, smoothonremoved: true}"
         >
+            <sns-logo-component></sns-logo-component>
             <!-- <p
                 class="card-text"
                 :class="{'text-right':chat.type == 0, 'text-success':chat.read_at != null }"
@@ -56,14 +57,18 @@
             </p>
             -->
             <template v-for="(chat, index) in chats">
-                <div class="min-h-100" :key="chat.id">
+                <div
+                    class="min-h-100"
+                    :class="{'m-t-120':index == 0 && chat.type == 0}"
+                    :key="chat.id"
+                >
                     <div v-if="chat.type == 0" class="wrapper">
                         <balloon-component :chat="chat"></balloon-component>
                     </div>
                     <div
                         v-if="chat.type != 0"
                         class="opponent-wrapper"
-                        :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0 }"
+                        :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0, 'm-t-120':chat.message_id == 1}"
                     >
                         <opponent-face-component :chat="chat"></opponent-face-component>
                         <opponent-balloon-component :chat="chat"></opponent-balloon-component>
@@ -100,6 +105,7 @@ import BalloonComponent from "./BalloonComponent";
 import OpponentBalloonComponent from "./OpponentBalloonComponent";
 import OpponentFaceComponent from "./OpponentFaceComponent";
 import IsTypingComponent from "./IsTypingComponent";
+import SnsLogoComponent from "./SnsLogoComponent";
 
 export default {
     props: ["friend"],
@@ -206,6 +212,7 @@ export default {
                 this.friend.session.open ? this.read() : "";
                 this.friendIsTyping = false;
                 this.chats.push({
+                    message_id: e.id,
                     message: e.content,
                     type: 1,
                     sent_at: "Just Now"
@@ -226,6 +233,7 @@ export default {
             e => (this.session.block = e.blocked)
         );
 
+        // TODO 相手にリアルタイムに画像反映
         // Echo.private(`Chat.${this.friendIcon.id}`).listen(
         //     "FriendIconEvent",
         //     e => {
@@ -251,7 +259,8 @@ export default {
         BalloonComponent,
         OpponentBalloonComponent,
         OpponentFaceComponent,
-        IsTypingComponent
+        IsTypingComponent,
+        SnsLogoComponent
     }
 };
 </script>
@@ -260,7 +269,9 @@ export default {
 .min-h-100 {
     min-height: 100px;
 }
-
+.m-t-120 {
+    margin-top: 120px;
+}
 .right-flex {
     @media screen and (max-width: 480px) {
         right: 3%;
@@ -302,6 +313,12 @@ export default {
 .chat-box {
     height: 400px;
 }
+
+.card-header {
+    z-index: 1000;
+    background-color: white !important;
+}
+
 .card-body {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -328,7 +345,7 @@ export default {
 
 .img-position {
     position: absolute;
-    z-index: 100;
+    z-index: 50;
     left: 3%;
     bottom: 20%;
 }

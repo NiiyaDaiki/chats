@@ -42,7 +42,6 @@ export default {};
         26% 94%,
         24% 80%
     );
-    z-index: 100;
 }
 
 .ellipsis1 {
@@ -53,8 +52,8 @@ export default {};
     top: 100% - 33%;
     clip-path: circle(50% at 50% 50%);
     background-color: rgb(202, 11, 11);
-    z-index: 110;
-    animation: flash1 2s  infinite;
+    z-index: 10;
+    animation: flash1 2s infinite;
 }
 .ellipsis2 {
     position: absolute;
@@ -64,8 +63,8 @@ export default {};
     top: 100% - 30%;
     clip-path: circle(50% at 50% 50%);
     background-color: rgb(202, 11, 11);
-    z-index: 120;
-    animation: flash2 2s  infinite;
+    z-index: 20;
+    animation: flash2 2s infinite;
 }
 .ellipsis3 {
     position: absolute;
@@ -75,8 +74,8 @@ export default {};
     top: 100% - 28%;
     clip-path: circle(50% at 50% 50%);
     background-color: rgb(202, 11, 11);
-    z-index: 130;
-    animation: flash3 2s  infinite;
+    z-index: 30;
+    animation: flash3 2s infinite;
 }
 
 @keyframes flash1 {
@@ -89,16 +88,16 @@ export default {};
     20% {
         opacity: 1;
     }
-    60%{
+    60% {
         opacity: 1;
     }
-    66%{
+    66% {
         opacity: 1;
     }
-    67%{
+    67% {
         opacity: 0;
     }
-    100%{
+    100% {
         opacity: 0;
     }
 }
@@ -113,16 +112,15 @@ export default {};
     30% {
         opacity: 1;
     }
-    71%{
+    71% {
         opacity: 1;
     }
-    72%{
+    72% {
         opacity: 0;
     }
-    100%{
+    100% {
         opacity: 0;
     }
-
 }
 
 @keyframes flash3 {
@@ -130,20 +128,19 @@ export default {};
         opacity: 0;
     }
     39% {
-      opacity: 0;
+        opacity: 0;
     }
     40% {
         opacity: 1;
     }
-    76%{
+    76% {
         opacity: 1;
     }
-    77%{
+    77% {
         opacity: 0;
     }
-    100%{
+    100% {
         opacity: 0;
     }
-
 }
 </style>

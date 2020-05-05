@@ -28,6 +28,7 @@ import OpponentBalloonComponent from './components/OpponentBalloonComponent.vue'
 import OpponentFaceComponent from './components/OpponentFaceComponent.vue'
 import IsTypingComponent from './components/IsTypingComponent.vue'
 import ImageUploadComponent from './components/ImageUploadComponent.vue'
+import SnsLogoComponent from './components/SnsLogoComponent.vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -44,7 +45,8 @@ const app = new Vue({
         OpponentBalloonComponent,
         OpponentFaceComponent,
         IsTypingComponent,
-        ImageUploadComponent
+        ImageUploadComponent,
+        SnsLogoComponent
     },
     data: {
         showModal: false
