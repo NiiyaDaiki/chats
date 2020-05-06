@@ -27,7 +27,6 @@ class UserIconsController extends Controller
         $file = $request->file('file');
         $fileName = $file->getClientOriginalName();
         // 保存先は"storage/app/public/image"
-        // ファイル名は自動で割り振られる
         $up_pass = $file->store('public/image');
         $image_pass = '/var/www/storage/app/public/image/' . basename($up_pass);
 
@@ -41,15 +40,15 @@ class UserIconsController extends Controller
         $removebg = new RemoveBg($api_key);
         $removebg->file($image_pass)->save($image_pass);
 
-        // 画像の2値化
+        // 2値化
         $imagick = new \Imagick($image_pass);
-        $imagick->thresholdImage('30000');
+        $imagick->thresholdImage('42000');
         $imagick->writeImage('png:' . $image_pass);
 
-        // // バケットの`images`フォルダへアップロード
+        // バケットの`images`フォルダへアップロード
         $fixedImage = Image::make($image_pass)->encode();
         Storage::disk('s3')->put('/images//' . $fileName, $fixedImage, 'public');
-        // // アップロードした画像のフルパスを取得
+        // アップロードした画像のフルパスを取得
         $userIcon->image_path = Storage::cloud()->url($fileName);
         $user = User::where('id', auth()->id())->first();
         $userIcon->user_id = $user->id;
