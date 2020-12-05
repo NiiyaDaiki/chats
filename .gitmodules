@@ -1,3 +1,4 @@
 [submodule "laradock_chats"]
 	path = laradock_chats
 	url = https://github.com/Laradock/laradock.git
+	ignore = dirty
