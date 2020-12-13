@@ -4,7 +4,12 @@
             <p>画像アップロード</p>
 
             <div class="form-group">
-                <input class="form-control-file" type="file" name="image" @change="fileSelected" />
+                <input
+                    class="form-control-file"
+                    type="file"
+                    name="image"
+                    @change="fileSelected"
+                />
             </div>
             <div class="form-group">
                 <input
@@ -14,10 +19,12 @@
                     @click="uploadImage()"
                 />
             </div>
-            <p v-if="beforeUpload">{{this.text}}</p>
-            <p v-if="success" class="text-success">{{this.successText}}</p>
-            <p v-if="failure" class="text-danger">{{this.failureText}}</p>
-            <button class="btn btn-secondary" @click="closeEvent()">close</button>
+            <p v-if="beforeUpload">{{ this.text }}</p>
+            <p v-if="success" class="text-success">{{ this.successText }}</p>
+            <p v-if="failure" class="text-danger">{{ this.failureText }}</p>
+            <button class="btn btn-secondary" @click="closeEvent()">
+                close
+            </button>
         </div>
     </div>
 </template>
@@ -80,7 +87,7 @@ export default {
 <style>
 #overlay {
     /* 要素を重ねた時の順番 */
-    z-index: 100;
+    z-index: 2000;
 
     /* 画面全体を覆う設定 */
     position: fixed;

@@ -42,7 +42,7 @@ class UserIconsController extends Controller
 
         // 2値化
         $imagick = new \Imagick($image_pass);
-        $imagick->thresholdImage('42000');
+        $imagick->thresholdImage('28000');
         $imagick->writeImage('png:' . $image_pass);
 
         // バケットの`images`フォルダへアップロード
