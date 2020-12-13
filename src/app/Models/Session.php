@@ -20,12 +20,12 @@ class Session extends Model
 
     public function deleteChats()
     {
-        $this->chats()->where('user_id', auth()->id())->delete();
+        $this->chats()->where('user_id', auth()->id())->truncate();
     }
 
     public function deleteMessages()
     {
-        $this->messages()->delete();
+        $this->messages()->truncate();
     }
 
     public function block()

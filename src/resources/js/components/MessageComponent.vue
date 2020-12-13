@@ -1,8 +1,8 @@
 <template>
     <div class="card card-default chat-box">
         <div class="card-header">
-            <b :class="{'text-danger':session.block}">
-                {{friend.name}}
+            <b :class="{ 'text-danger': session.block }">
+                {{ friend.name }}
                 <span v-if="friendIsTyping">が入力中...</span>
                 <span v-if="session.block">(ブロック中)</span>
             </b>
@@ -20,29 +20,44 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-ellipsis-v float-right mr-4" aria-hidden="true"></i>
+                    <i
+                        class="fas fa-ellipsis-v float-right mr-4"
+                        aria-hidden="true"
+                    ></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <div
+                    class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="dropdownMenuButton"
+                >
                     <a
                         class="dropdown-item"
                         href="#"
                         v-if="session.block && can"
                         @click.prevent="unBlock"
-                    >ブロック解除</a>
+                        >ブロック解除</a
+                    >
                     <a
                         class="dropdown-item"
                         href="#"
                         @click.prevent="block"
                         v-if="!session.block"
-                    >ブロック</a>
-                    <a class="dropdown-item" href="#" @click.prevent="clear">メッセージ履歴削除</a>
+                        >ブロック</a
+                    >
+                    <a class="dropdown-item" href="#" @click.prevent="clear"
+                        >メッセージ履歴削除</a
+                    >
                 </div>
             </div>
             <!-- Option Button End-->
         </div>
         <div
             class="card-body"
-            v-chat-scroll="{always: false, smooth: false, scrollonremoved:true, smoothonremoved: true}"
+            v-chat-scroll="{
+                always: false,
+                smooth: false,
+                scrollonremoved: true,
+                smoothonremoved: true,
+            }"
         >
             <sns-logo-component></sns-logo-component>
             <!-- <p
@@ -59,7 +74,7 @@
             <template v-for="(chat, index) in chats">
                 <div
                     class="min-h-100"
-                    :class="{'m-t-120':index == 0 && chat.type == 0}"
+                    :class="{ 'm-t-120': index == 0 && chat.type == 0 }"
                     :key="chat.id"
                 >
                     <div v-if="chat.type == 0" class="wrapper">
@@ -68,10 +83,18 @@
                     <div
                         v-if="chat.type != 0"
                         class="opponent-wrapper"
-                        :class="{'right-flex':index % 2 === 0, 'left-flex':index % 2 !== 0, 'm-t-120':chat.message_id == 1}"
+                        :class="{
+                            'right-flex': index % 2 === 0,
+                            'left-flex': index % 2 !== 0,
+                            'm-t-160': chat.message_id === 1,
+                        }"
                     >
-                        <opponent-face-component :chat="chat"></opponent-face-component>
-                        <opponent-balloon-component :chat="chat"></opponent-balloon-component>
+                        <opponent-face-component
+                            :chat="chat"
+                        ></opponent-face-component>
+                        <opponent-balloon-component
+                            :chat="chat"
+                        ></opponent-balloon-component>
                         <img
                             v-show="friendIcon.id"
                             class="img-position"
@@ -81,7 +104,10 @@
                     </div>
                 </div>
             </template>
-            <is-typing-component class="opponent-wrapper" v-if="friendIsTyping"></is-typing-component>
+            <is-typing-component
+                class="opponent-wrapper"
+                v-if="friendIsTyping"
+            ></is-typing-component>
         </div>
         <!-- <form class="card-footer" @submit.prevent="send"> -->
         <form class="card-footer" @keyup.ctrl.13="send">
@@ -90,7 +116,11 @@
                     @input="focusInput($event.target.value)"
                     type="text"
                     class="form-control"
-                    :placeholder="session.block ? 'ブロック中のため入力できません':'メッセージを入力してください'"
+                    :placeholder="
+                        session.block
+                            ? 'ブロック中のため入力できません'
+                            : 'メッセージを入力してください'
+                    "
                     :disabled="session.block"
                     v-model="message"
                 ></textarea>
@@ -272,6 +302,9 @@ export default {
 .m-t-120 {
     margin-top: 120px;
 }
+.m-t-160 {
+    margin-top: 160px;
+}
 .right-flex {
     @media screen and (max-width: 480px) {
         right: 3%;
@@ -315,7 +348,7 @@ export default {
 }
 
 .card-header {
-    z-index: 1000;
+    z-index: 300;
     background-color: white !important;
 }
 
