@@ -24,12 +24,6 @@ class UsersTableSeeder extends Seeder
                 'name' => '主人公'
             ]
         );
-        factory(User::class)->create(
-            [
-                'email' => 'tsunematsu@gmail.com',
-                'name' => '恒松'
-            ]
-        );
         factory(User::class, 3)->create();
     }
 }
