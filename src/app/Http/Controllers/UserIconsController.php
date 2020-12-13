@@ -36,7 +36,7 @@ class UserIconsController extends Controller
         $imagick->writeImage('png:' . $image_pass);
 
         // // 画像の切り抜き(外部API(remove.bg)を使用)
-        $api_key = 'SreXhaL18UoakKbGmJbNHASn';
+        $api_key = env('REMOVE_BG_API_KEY');
         $removebg = new RemoveBg($api_key);
         $removebg->file($image_pass)->save($image_pass);
 
