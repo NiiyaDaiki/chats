@@ -9,7 +9,7 @@
 1対1のチャットが可能で、ユーザーアイコンの登録やブロック、メッセージ削除など基本的な機能も備えています。チャットをリアルタイムに反映するためにwebsocketを利用しています。
 
 ## 使用技術
-![technology_used](https://user-images.githubusercontent.com/56012694/102021779-ac176c80-3dc5-11eb-9d5e-b5519c42b3b5.png)
+![technology_used](https://user-images.githubusercontent.com/56012694/102021818-f993d980-3dc5-11eb-88ba-5ae56198431e.png)
 
 ## こだわりポイント
 - 相手ユーザー入力中の吹き出しアイコンのアニメーション
