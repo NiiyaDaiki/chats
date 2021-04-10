@@ -37,3 +37,43 @@ https://qiita.com/dd0125/items/070cb6950ecb052ad94b
 
 ## Contrbuting
 Pull requests are welcome!!
+
+# 環境構築
+※Docker,npmは導入前提 envファイルなどは別途共有してもらうこと
+
+1. プロジェクトをクローン
+
+`https://github.com/NiiyaDaiki/chats.git`
+
+2. クローンしたフォルダに移動
+`cd chats`
+
+3. コンテナのビルド ※長いので気長に待つ
+
+`docker-compose build mysql nginx workspace php-fpm phpmyadmin`
+
+4. コンテナの起動
+
+`docker-compose up -d mysql nginx phpmyadmin`
+
+5. ワークスペースに入る
+
+`docker-compose exec --user=laradock workspace bash`
+
+6. パッケージのインストール
+`composer install`
+
+7. マイグレーションの実行
+`php artisan migrate`
+
+8. 初期データ投入
+`php artisan db:seed`
+
+9. アプリ起動
+`npm run hot`
+
+10. websocketsサーバ起動
+`php artisan websockets:serve`
+
+11. 起動確認
+`http://localhost:8088`
