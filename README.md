@@ -52,15 +52,15 @@ Pull requests are welcome!!
 
 3. コンテナのビルド ※長いので気長に待つ
 
-`docker-compose build mysql nginx workspace php-fpm phpmyadmin`
+`make build`
 
 4. コンテナの起動
 
-`docker-compose up -d mysql nginx phpmyadmin`
+`make start`
 
 5. ワークスペースに入る
 
-`docker-compose exec --user=laradock workspace bash`
+`make bash`
 
 6. パッケージのインストール
 
