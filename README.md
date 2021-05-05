@@ -78,7 +78,7 @@ Pull requests are welcome!!
 
 `npm run hot`
 
-10. websocketsサーバ起動
+10. websocketsサーバ起動(アプリ起動したターミナルとは別のターミナルでワークスペースのコンテナに入って実行)
 
 `php artisan websockets:serve`
 
